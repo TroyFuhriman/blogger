@@ -1,14 +1,14 @@
 <template>
   <div class="about container-fluid bg-image1">
     <div class="row">
-      <div class="col text-light text-shadow text-center">
-        <h1>Welcome {{ profile.name }}</h1>
+      <div class="col text-shadow text-center">
+        <h1 class>Welcome {{ profile.name }}</h1>
         <img class="rounded" :src="profile.picture" alt />
         <p>{{ profile.email }}</p>
       </div>
     </div>
     <div class="row">
-      <div class="col text-center">
+      <div class="col text-shadow text-center">
         <h1>My Blogs</h1>
       </div>
     </div>
@@ -59,6 +59,6 @@ img {
   max-width: 100px;
 }
 .text-shadow {
-  text-shadow: 1px 1px black;
+  text-shadow: 1px 1px white;
 }
 </style>

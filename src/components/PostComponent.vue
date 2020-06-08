@@ -1,6 +1,6 @@
 <template>
   <div class="post mt-3 col-md-9 col-12 text-center">
-    <button @click="form = !form" class="btn btn-primary">Create Blog</button>
+    <button @click="form = !form" class="btn btn-primary btn-outline-dark">Create Blog</button>
     <form v-if="form" @submit.prevent="createBlog">
       <div class="form-group mt-2">
         <input
@@ -27,7 +27,7 @@
       </div>
       <div class="row text-center">
         <div class="col">
-          <button type="submit" class="btn btn-success">Post</button>
+          <button type="submit" class="btn btn-success btn-outline-dark">Post</button>
         </div>
       </div>
     </form>

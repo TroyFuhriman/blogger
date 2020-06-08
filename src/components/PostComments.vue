@@ -11,7 +11,7 @@
       />
       <div class="row">
         <div class="col text-center">
-          <button class="mt-3 btn btn-success">Post Comment</button>
+          <button class="mt-3 btn btn-success btn-outline-dark">Post Comment</button>
         </div>
       </div>
     </form>

@@ -1,13 +1,16 @@
 <template>
   <div class="col-md-4 col-12 comments">
     <div class="card">
-      <span
-        v-if="comment.creatorEmail == profile.email"
-        @click="deleteComment"
-        class="text-danger ml-1"
-      >
-        <i class="fa fa-times" aria-hidden="true"></i>
-      </span>
+      <div class="row">
+        <span
+          v-if="comment.creatorEmail == profile.email"
+          @click="deleteComment"
+          class="text-danger ml-1 col-1"
+          type="button"
+        >
+          <i class="fa fa-times" aria-hidden="true"></i>
+        </span>
+      </div>
       <div class="card-body">
         <p class="card-text small">{{comment.creatorEmail}}</p>
         <h4 class="card-title">{{comment.body}}</h4>
@@ -18,26 +21,28 @@
         <button
           @click="form = !form"
           v-if="comment.creatorEmail == profile.email"
-          class="btn btn-warning"
+          class="btn btn-warning btn-outline-dark mb-2"
         >Edit</button>
       </div>
-    </div>
-    <form v-if="form" @submit.prevent="editComment" class="form-group">
-      <input
-        type="text"
-        class="form-control"
-        v-model="editComments.body"
-        name="comm"
-        id="comm"
-        placeholder="edits this comment"
-      />
-      <div class="row">
-        <div class="col text-center">
-          <span v-if="hidden">{{comment.id}}</span>
-          <button type="submit" class="mt-3 btn btn-success">edit Comment</button>
-        </div>
+      <div class="row justify-content-center">
+        <form v-if="form" @submit.prevent="editComment" class="form-group mt-1 col-11">
+          <input
+            type="text"
+            class="form-control"
+            v-model="editComments.body"
+            name="comm"
+            id="comm"
+            placeholder="edits this comment"
+          />
+          <div class="row">
+            <div class="col text-center">
+              <span v-if="hidden">{{comment.id}}</span>
+              <button type="submit" class="mt-3 btn btn-success btn-outline-dark">edit Comment</button>
+            </div>
+          </div>
+        </form>
       </div>
-    </form>
+    </div>
   </div>
 </template>
 

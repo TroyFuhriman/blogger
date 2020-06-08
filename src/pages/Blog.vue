@@ -4,6 +4,18 @@
       <div class="row justify-content-center mt-5">
         <div class="col-md-6 col-12">
           <div class="card">
+            <div class="row">
+              <router-link :to="{ name: 'Home'}">
+                <span
+                  type="button"
+                  v-if="blog.creatorEmail == profile.email"
+                  @click="deleteBlog"
+                  class="text-danger ml-1 col-1"
+                >
+                  <i class="fa fa-times" aria-hidden="true"></i>
+                </span>
+              </router-link>
+            </div>
             <div class="card-body">
               <h4 class="card-title text-center border-bottom">{{blog.title}}</h4>
               <p class="card-text">{{blog.body}}</p>
@@ -12,7 +24,7 @@
               <button
                 @click="form = !form"
                 v-if="blog.creatorEmail == profile.email"
-                class="btn btn-warning"
+                class="btn btn-warning btn-outline-dark"
               >Edit</button>
             </div>
             <form v-if="form" @submit.prevent="editedBlog">
@@ -41,7 +53,7 @@
               </div>
               <div class="row text-center">
                 <div class="col">
-                  <button type="submit" class="btn btn-success">Post</button>
+                  <button type="submit" class="btn btn-success btn-outline-dark">Post</button>
                 </div>
               </div>
             </form>
@@ -94,6 +106,9 @@ export default {
       this.editBlog = {
         blogId: this.$route.params.id
       };
+    },
+    deleteBlog() {
+      this.$store.dispatch("deleteBlog", this.blog.id);
     }
   },
   components: {

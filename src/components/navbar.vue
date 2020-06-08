@@ -38,8 +38,12 @@
         </li>
       </ul>
       <span class="navbar-text">
-        <button class="btn btn-success" @click="login" v-if="!$auth.isAuthenticated">Login</button>
-        <button class="btn btn-danger" @click="logout" v-else>logout</button>
+        <button
+          class="btn btn-warning btn-outline-dark"
+          @click="login"
+          v-if="!$auth.isAuthenticated"
+        >Login</button>
+        <button class="btn btn-warning btn-outline-dark" @click="logout" v-else>logout</button>
       </span>
     </div>
   </nav>
