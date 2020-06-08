@@ -19,6 +19,7 @@
             <div class="card-body">
               <h4 class="card-title text-center border-bottom">{{blog.title}}</h4>
               <p class="card-text">{{blog.body}}</p>
+              <p class="card-text text-right small">{{blog.creatorEmail}}</p>
             </div>
             <div class="text-center">
               <button

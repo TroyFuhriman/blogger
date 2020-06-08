@@ -62,6 +62,7 @@
 </template>
 
 <script>
+import NotificationService from "../assets/NotificationService.js";
 export default {
   name: "Blogs",
   data() {
@@ -74,8 +75,10 @@ export default {
   },
   props: ["blogs"],
   methods: {
-    deleteBlog() {
-      this.$store.dispatch("deleteBlog", this.blogs.id);
+    async deleteBlog() {
+      if (await NotificationService.confirmAction()) {
+        this.$store.dispatch("deleteBlog", this.blogs.id);
+      }
     },
     editedBlog() {
       this.$store.dispatch("editBlog", {

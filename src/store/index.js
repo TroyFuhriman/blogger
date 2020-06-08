@@ -76,7 +76,6 @@ export default new Vuex.Store({
       try {
         let res = await api.delete('blogs/' + blogId)
         dispatch("getBlogs")
-        dispatch("getBlogDetails")
         dispatch("getProfileBlog")
       } catch (error) {
         console.error(error)
@@ -152,6 +151,14 @@ export default new Vuex.Store({
       try {
         let res = await api.get('profile/comments')
         commit("getProfileComments", res.data)
+      } catch (error) {
+        console.error(error)
+      }
+    },
+    async updateProfile({ commit, dispatch }, profile) {
+      try {
+        let res = await api.put('profile', profile.name)
+        dispatch("getProfile")
       } catch (error) {
         console.error(error)
       }

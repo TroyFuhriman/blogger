@@ -47,6 +47,7 @@
 </template>
 
 <script>
+import NotificationService from "../assets/NotificationService.js";
 export default {
   name: "Comments",
   data() {
@@ -55,13 +56,16 @@ export default {
         id: this.comment.id,
         blogId: this.comment.blogId
       },
-      form: false
+      form: false,
+      hidden: false
     };
   },
   props: ["comment"],
   methods: {
-    deleteComment() {
-      this.$store.dispatch("deleteComment", this.comment);
+    async deleteComment() {
+      if (await NotificationService.confirmAction()) {
+        this.$store.dispatch("deleteComment", this.comment);
+      }
     },
     editComment() {
       this.$store.dispatch("editComments", { ...this.editComments });

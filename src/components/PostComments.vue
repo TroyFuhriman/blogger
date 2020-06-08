@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import NotificationService from "../assets/NotificationService.js";
 export default {
   name: "PostComment",
   data() {
@@ -30,6 +31,7 @@ export default {
   },
   methods: {
     postComment() {
+      NotificationService.toast();
       this.$store.dispatch("createComment", { ...this.newComment });
       this.newComment = {
         blogId: this.$route.params.id

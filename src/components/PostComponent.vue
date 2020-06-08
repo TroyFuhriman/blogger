@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import NotificationService from "../assets/NotificationService.js";
 export default {
   name: "Post",
   data() {
@@ -50,6 +51,7 @@ export default {
   },
   methods: {
     createBlog() {
+      NotificationService.toast();
       this.$store.dispatch("createBlog", { ...this.newBlog });
       this.newBlog = {};
     }
